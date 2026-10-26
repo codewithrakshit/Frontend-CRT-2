@@ -20,7 +20,7 @@ console.log(student.name);
 console.log(student.age);
 consople.log(student.city); */
 
-const student = {
+/* const student = {
   name: "Priya",
   age: 30,
   course: "JavaScript",
@@ -30,4 +30,15 @@ const jsonString = JSON.stringify(student);
 
 console.log(jsonString);
 console.log(typeof student);
-console.log(typeof jsonString);
+console.log(typeof jsonString); */
+
+async function getPosts() {
+  const response = await fetch(
+    "https://jsonplaceholder.typicode.com/posts/1"
+  );
+
+  const data = await response.json();
+  console.log(data);
+}
+
+getPosts();
