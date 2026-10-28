@@ -1,0 +1,10 @@
+{
+  "name": "to-do-app",
+  "private": true,
+  "scripts": {
+    "dev": "npm --prefix to-do run dev",
+    "build": "npm --prefix to-do run build",
+    "lint": "npm --prefix to-do run lint",
+    "preview": "npm --prefix to-do run preview"
+  }
+}

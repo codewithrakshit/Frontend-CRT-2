@@ -1,0 +1,53 @@
+.navbar {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  max-width: 1080px;
+  padding: 28px 32px;
+}
+.brand { align-items: center; display: flex; font-size: 19px; font-weight: 700; gap: 10px; letter-spacing: -.04em; }
+.brand-mark { align-items: center; background: #242323; border-radius: 50%; color: #f7f5f0; display: flex; font-size: 13px; height: 25px; justify-content: center; width: 25px; }
+nav { display: flex; gap: 29px; }
+nav a { color: #77736d; font-size: 14px; font-weight: 500; padding: 4px 0; }
+nav a.active, nav a:hover { color: #242323; }
+nav a.active { border-bottom: 1px solid #242323; }
+.page { margin: 0 auto; max-width: 780px; padding: 72px 32px 100px; }
+.hero { margin-bottom: 48px; }
+.eyebrow { color: #9c7854; font-size: 11px; font-weight: 700; letter-spacing: .16em; margin: 0 0 20px; }
+h1 { font-size: clamp(44px, 7vw, 72px); letter-spacing: -.065em; line-height: .99; margin: 0; }
+h1 em { color: #ae8260; font-family: 'Playfair Display', serif; font-weight: 600; }
+.intro { color: #77736d; font-size: 17px; margin: 22px 0 0; }
+.task-card { background: #fff; border: 1px solid #e8e3dc; border-radius: 14px; box-shadow: 0 12px 35px #493b2b0d; padding: 28px; }
+.card-heading { align-items: center; display: flex; justify-content: space-between; margin-bottom: 22px; }
+h2 { font-size: 19px; letter-spacing: -.03em; margin: 0 0 5px; }
+.card-heading p { color: #99938b; font-size: 13px; margin: 0; }
+.clear-button { background: none; border: 0; color: #a97958; cursor: pointer; font-size: 12px; }
+.todo-form { display: flex; gap: 10px; margin-bottom: 23px; }
+.todo-form input { background: #faf9f7; border: 1px solid #e3ded7; border-radius: 7px; color: #242323; flex: 1; min-width: 0; outline: none; padding: 13px 15px; }
+.todo-form input:focus { border-color: #b28768; box-shadow: 0 0 0 3px #b287681c; }
+.todo-form button, .primary-link { background: #242323; border: 0; border-radius: 7px; color: #fff; cursor: pointer; font-size: 13px; font-weight: 600; padding: 0 20px; }
+.todo-list { list-style: none; margin: 0; padding: 0; }
+.todo-item { align-items: center; border-top: 1px solid #eeeae5; display: flex; gap: 13px; min-height: 57px; }
+.check-button { align-items: center; background: transparent; border: 1px solid #c9c1b8; border-radius: 50%; color: #fff; cursor: pointer; display: flex; font-size: 12px; height: 21px; justify-content: center; padding: 0; width: 21px; }
+.completed .check-button { background: #ae8260; border-color: #ae8260; }
+.todo-title { flex: 1; font-size: 14px; }
+.completed .todo-title { color: #aaa39b; text-decoration: line-through; }
+.delete-button { background: none; border: 0; color: #b6afa7; cursor: pointer; font-size: 21px; line-height: 1; padding: 5px; }
+.delete-button:hover { color: #a97958; }
+.empty-state { border-top: 1px solid #eeeae5; color: #99938b; padding: 38px 10px 18px; text-align: center; }
+.empty-icon { color: #b88b68; display: block; font-size: 24px; margin-bottom: 8px; }
+.empty-state h2 { color: #4a4743; font-size: 16px; }
+.empty-state p { font-size: 13px; margin: 7px 0 0; }
+.about-page, .not-found { max-width: 720px; padding-top: 110px; }
+.about-copy { color: #77736d; font-size: 18px; line-height: 1.65; margin: 28px 0 34px; max-width: 500px; }
+.primary-link { display: inline-flex; gap: 14px; padding: 13px 19px; }
+.primary-link span { font-size: 18px; line-height: 13px; }
+footer { color: #aaa39b; font-size: 12px; padding: 0 32px 30px; text-align: center; }
+@media (max-width: 560px) {
+  .navbar { padding: 22px 20px; }
+  .page { padding: 55px 20px 70px; }
+  .task-card { padding: 20px; }
+  .todo-form { flex-wrap: wrap; }
+  .todo-form button { min-height: 44px; width: 100%; }
+}
