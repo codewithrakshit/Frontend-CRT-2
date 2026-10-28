@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react'
-import Navbar from './components/navbar'
 import { TodoProvider } from './context/todocontext'
 import About from './pages/about'
 import Home from './pages/home'
@@ -23,9 +22,7 @@ export default function App() {
 
   return (
     <TodoProvider>
-      <Navbar currentPage={page} onNavigate={setPage} />
       {content}
-      <footer>Built for a clearer day.</footer>
     </TodoProvider>
   )
 }

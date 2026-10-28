@@ -1,6 +1,6 @@
 import TodoItem from './todoitem'
 
-export default function TodoList({ todos, onToggle, onDelete }) {
+export default function TodoList({ todos, onToggle, onUpdate, onDelete }) {
   if (!todos.length) {
     return (
       <div className="empty-state">
@@ -14,7 +14,13 @@ export default function TodoList({ todos, onToggle, onDelete }) {
   return (
     <ul className="todo-list">
       {todos.map((todo) => (
-        <TodoItem key={todo.id} todo={todo} onToggle={onToggle} onDelete={onDelete} />
+        <TodoItem
+          key={todo.id}
+          todo={todo}
+          onToggle={onToggle}
+          onUpdate={onUpdate}
+          onDelete={onDelete}
+        />
       ))}
     </ul>
   )

@@ -1,33 +1,48 @@
+import { useState } from 'react'
 import TodoForm from '../components/todoform'
 import TodoList from '../components/todolist'
 import { useTodos } from '../context/todocontext'
 
 export default function Home() {
-  const { todos, addTodo, toggleTodo, deleteTodo, clearCompleted } = useTodos()
+  const { todos, addTodo, toggleTodo, updateTodo, deleteTodo } = useTodos()
+  const [filter, setFilter] = useState('all')
   const remainingCount = todos.filter((todo) => !todo.completed).length
-  const completedCount = todos.length - remainingCount
+  const filteredTodos = todos.filter((todo) => {
+    if (filter === 'active') return !todo.completed
+    if (filter === 'completed') return todo.completed
+    return true
+  })
 
   return (
     <main className="page home-page">
       <section className="hero">
-        <p className="eyebrow">YOUR PRODUCTIVITY SPACE</p>
-        <h1>Small steps.<br /><em>Big progress.</em></h1>
-        <p className="intro">Keep your day clear, focused, and moving forward.</p>
+        <h1>My Tasks</h1>
+        <p className="intro">Keep track of what matters today.</p>
       </section>
       <section className="task-card" aria-labelledby="tasks-heading">
-        <div className="card-heading">
-          <div>
-            <h2 id="tasks-heading">Today&apos;s tasks</h2>
-            <p>{remainingCount ? `${remainingCount} ${remainingCount === 1 ? 'task' : 'tasks'} left` : 'All caught up'}</p>
-          </div>
-          {completedCount > 0 && (
-            <button className="clear-button" type="button" onClick={clearCompleted}>
-              Clear completed
-            </button>
-          )}
-        </div>
         <TodoForm onAdd={addTodo} />
-        <TodoList todos={todos} onToggle={toggleTodo} onDelete={deleteTodo} />
+        <div className="task-toolbar">
+          <div className="filters" role="group" aria-label="Task filter">
+            {['all', 'active', 'completed'].map((option) => (
+              <button
+                className={filter === option ? 'filter-button selected' : 'filter-button'}
+                key={option}
+                type="button"
+                onClick={() => setFilter(option)}
+              >
+                {option[0].toUpperCase() + option.slice(1)}
+              </button>
+            ))}
+          </div>
+          <span className="task-count">{todos.length} {todos.length === 1 ? 'task' : 'tasks'}</span>
+        </div>
+        <TodoList
+          todos={filteredTodos}
+          onToggle={toggleTodo}
+          onUpdate={updateTodo}
+          onDelete={deleteTodo}
+        />
+        <p className="completion-count">{todos.length - remainingCount} completed out of {todos.length}</p>
       </section>
     </main>
   )

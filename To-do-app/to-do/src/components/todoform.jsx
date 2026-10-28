@@ -22,7 +22,7 @@ export default function TodoForm({ onAdd }) {
         placeholder="What needs to be done?"
         maxLength="120"
       />
-      <button type="submit">Add task</button>
+      <button type="submit">＋ Add Task</button>
     </form>
   )
 }

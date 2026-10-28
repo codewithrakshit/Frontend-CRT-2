@@ -46,12 +46,21 @@ export function TodoProvider({ children }) {
     setTodos((currentTodos) => currentTodos.filter((todo) => todo.id !== id))
   }
 
+  const updateTodo = (id, title) => {
+    const trimmedTitle = title.trim()
+    if (!trimmedTitle) return
+
+    setTodos((currentTodos) =>
+      currentTodos.map((todo) => (todo.id === id ? { ...todo, title: trimmedTitle } : todo)),
+    )
+  }
+
   const clearCompleted = () => {
     setTodos((currentTodos) => currentTodos.filter((todo) => !todo.completed))
   }
 
   const value = useMemo(
-    () => ({ todos, addTodo, toggleTodo, deleteTodo, clearCompleted }),
+    () => ({ todos, addTodo, toggleTodo, updateTodo, deleteTodo, clearCompleted }),
     [todos],
   )
 
